@@ -1,31 +1,23 @@
 <div id="beer-list">
+  <h1>Beers!</h1>
   <table>
     <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
+        <th>Name</th>
+        <th>Style</th>
         <th>Price</th>
         <th>Image</th>
+        <th>Stock</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Beer 1</td>
-        <td>zaraza</td>
-        <td>cara</td>
-        <td>jaaa</td>
-      </tr>
-      <tr>
-        <td>Beer 2</td>
-        <td>zaraza</td>
-        <td>maso</td>
-        <td>jaaa</td>
-      </tr>
-      <tr>
-        <td>Beer 3</td>
-        <td>zaraza</td>
-        <td>barata</td>
-        <td>jaaa</td>
+      <tr *ngFor="let beer of beers">
+        <td>{{beer.name}}</td>
+        <td>{{beer.style}}</td>
+        <td>{{beer.price}}</td>
+        <td>{{beer.image}}</td>
+        <td *ngIf="beer.inStock > 0"><span class="icon has-text-success"><i class="fa fa-check"></i></span></td>
+        <td *ngIf="beer.inStock <= 0"><span class="icon has-text-warning"><i class="fa fa-exclamation-circle"></i></span></td>
       </tr>
     </tbody>
   </table>
